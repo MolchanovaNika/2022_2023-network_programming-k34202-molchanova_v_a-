@@ -12,31 +12,160 @@ Author: Molchanova Veronika Alexandrovna
 
 Lab: Lab3
 
-Date of create: 24.11.2022
+Date of create: 5.12.2022
 
 Date of finished: . .2022
 
 ---
 
-*Поднятие NetBox на дополнительной VM.*
-Netbox — это открытое (open source) веб приложение, разработанное для управления и документирования компьютерных сетей. 
-Netbox был развёрнут на облачной виртуальной машине.
-Была установлена база данных postgresql
+# 1. Поднятие NetBox на дополнительной VM.
 
-\\ команда \\
+> Netbox — это открытое (open source) веб приложение, разработанное для управления и документирования компьютерных сетей. 
++ Netbox был развёрнут на облачной виртуальной машине.
+ 
+ ## Установка и настройка PostgreSQL
+ 
++ Установлена база данных postgresql и выполнена настройка согласно гайду https://www.vultr.com/docs/install-and-configure-netbox-on-ubuntu-20-04/
 
-![image](https://user-images.githubusercontent.com/90505004/205699942-7171d883-1dd5-47c5-929a-9794b4e70798.png)
+`sudo apt install postgresql`
 
-Создана нужная база данных и привелегированный пользователь
+<img src="https://user-images.githubusercontent.com/90505004/205984218-d965a48d-5e1a-40b4-ae2d-49ead76a4061.png" height="150">
 
-![image](https://user-images.githubusercontent.com/90505004/205699973-8ce917bd-e5ca-4d48-8476-7d58afc97464.png)
++ Создана нужная база данных и привелегированный пользователь
 
-Также требуется установить Redis - СУБД для баз данных NoSQL
+<img src="https://user-images.githubusercontent.com/90505004/205985187-1e81d4cd-8593-44cc-9272-0656d229dccf.png" height="150">
 
-\\ и дальше как у Макса \\
-![image](https://user-images.githubusercontent.com/90505004/205700210-1b8b5cb1-bda7-4426-8665-45a4b378c6a0.png)
+<img src="" height="220">
 
-![image](https://user-images.githubusercontent.com/90505004/205700264-e2414ed5-ff9d-400d-b444-bdc5b508846a.png)
+## Установка Redis
+
++ Установлен Redis  `sudo apt install -y redis-server`
+
+<img src="https://user-images.githubusercontent.com/90505004/205986637-7837bbdb-5fee-4da7-aac8-04c5978d347f.png" height="200"> 
+
+<img src="https://user-images.githubusercontent.com/90505004/205986348-e7af3419-57e8-4001-b09e-d590e64398c4.png" height="30">
+
+> Redis - это хранилище значений ключей в памяти. NetBox использует его для кэширования и постановки в очередь.
+
+## Установка и настройка NetBox
+
++ Установлены все необходимые пакеты
+
+`sudo apt install python3 python3-pip python3-venv python3-dev build-essential libxml2-dev libxslt1-dev libffi-dev libpq-dev libssl-dev zlib1g-dev git -y`
+
+![image](https://user-images.githubusercontent.com/90505004/205987669-aa4d3b7b-7767-44e0-a1af-bf6f2e508108.png)
+
++ Создана директория, в которую установлен и распакован Netbox.
+
+`sudo wget https://github.com/netbox-community/netbox/archive/refs/tags/v3.3.9.tar.gz`
+
+`sudo tar -xzf v3.3.9.tar.gz -C /opt`
+
+`sudo ln -s /opt/netbox-3.3.9/ /opt/netbox`
+
+![image](https://user-images.githubusercontent.com/90505004/205988675-028a170d-1c42-4dd1-a35a-4798a3791fbb.png)
+
+
++ Создан пользователь с предоставленными правами на все папки и файлы Netbox.
+
+`groupadd --system netbox`
+
+`sudo adduser --system -g netbox netbox`
+
+`chown --recursive netbox /opt/netbox/netbox/media/`
+
++ Создано виртуальное окружение, где установлены все зависимости
+
+`python3 -m venv /opt/netbox/venv`
+
+`source venv/bin/activate`
+
+`pip3 install -r requirements.txt`
+
++ Cкопирован пример файла конфигурации configuration.example.py в файл конфигурации configuration.py.
+
+`cd netbox/netbox/`
+
+`cp configuration.example.py configuration.py`
+
++ С помощью входящего в состав netbox исполнительного файла gnerate_secret_key.py сгенерирован секретный ключ.
+
+`python3 ../generate_secret_key.py`
+
++ Выполнены миграции
+
+`python3 manage.py migrate`
+
++ Внутри вирутального окружения создан superuser для дальнейшего управления netbox.
+
+`python3 manage.py createsuperuser`
+
++ Собрана статика
+
+`python3 manage.py collectstatic --no-input`
+
+
+
+## Установка и настройка nginx и gunicorn для запуска netbox
+
+### Настройка Gunicorn
+
++ Для настройка gunicorn скопирован файл
+
+`sudo cp /opt/netbox/contrib/gunicorn.py /opt/netbox/gunicorn.py`
+
+> Gunicorn — это Application-сервер для запуска Web-приложений написанных на Python. Основная его задача — это работа в режиме демона и поддержка постоянной работы Web-приложений.
+
+### Настройка Systemd
+
++ Скопированы файлы в каталог
+
+`sudo cp /opt/netbox/contrib/*.service /etc/systemd/system/`
+
++ Перезагружен демон, чтобы включить изменения Systemd
+
+`sudo systemctl daemon-reload`
+
++ Запущены службы netbox и .netbox-rq
+
+`sudo systemctl start netbox netbox-rq`
+
++ Включен запуск служб во время загрузки.
+
+`sudo systemctl enable netbox netbox-rq`
+
+### Настройка веб-сервера Nginx
+
+> Nginx― это программное обеспечение с открытым исходным кодом, которое позволяет создавать веб-сервер. Также его используют как почтовый сервер или обратный прокси-сервер.
+
++ Установлен веб-сервер Nginx.
+
+`sudo apt install -y nginx`
+
++ Скопирован файл конфигурации NetBox Nginx
+
+`sudo cp /opt/netbox/contrib/nginx.conf /etc/nginx/sites-available/netbox`
+
++ Отредактирован файл netbox, добавлен хост и удалены https server
+
+`sudo nano /etc/nginx/sites-available/netbox`
+
+<img src="https://user-images.githubusercontent.com/90505004/205700210-1b8b5cb1-bda7-4426-8665-45a4b378c6a0.png" height="220"> 
+
++ Создана символическая ссылка в каталоге с поддержкой сайтов netbox на файл конфигурации. Выполнен перезапуск служб. 
+
+`sudo rm /etc/nginx/sites-enabled/default`
+
+`sudo ln -s /etc/nginx/sites-available/netbox /etc/nginx/sites-enabled/netbox`
+
++ Перезапущена служба nginx, чтобы включить новые конфигурации.
+
+`sudo systemctl restart nginx`
+
+
+При переходе в браузере по ip открывается netbox. Теперь можно войти в систему, используя имя пользователя и пароль, которые установлены при создании учетной записи суперпользователя. Теперь можно приступить к настройке сетевых компонентов и управлению ими.
+
+<img src="https://user-images.githubusercontent.com/90505004/205961988-76105006-4495-488f-b317-4cade12c3d5d.png" height="500">
 
 
 *Заполнить всю возможную информацию об имеющихся CHR в Netbox.*
