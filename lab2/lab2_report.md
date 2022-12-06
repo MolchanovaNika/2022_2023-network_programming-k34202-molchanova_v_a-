@@ -82,7 +82,11 @@ Date of finished: . .2022
 
 > OSPF — протокол динамической маршрутизации. 
 
-<img src=" https://user-images.githubusercontent.com/90505004/205929590-6a640867-c877-4110-90e3-84b9757feaef.png" height="200">
-<img src="https://user-images.githubusercontent.com/90505004/205929635-5da26aef-2b1e-4111-b021-0831bad9c53f.png " height="200">
+<img src="https://user-images.githubusercontent.com/90505004/205929590-6a640867-c877-4110-90e3-84b9757feaef.png" height="100"> <img src="https://user-images.githubusercontent.com/90505004/205929635-5da26aef-2b1e-4111-b021-0831bad9c53f.png " height="100">
 
-// пикча //
+
+## Выводы:
+В ходе выполнения лабораторной работы был создан еще один CHR. После чего удаленно были проведены различные настройки обоих CHR с помощью Ansible, установленного на удаленной ВМ, находящейся в YandexCloud.
+
+![image](https://user-images.githubusercontent.com/90505004/205959711-82342480-7bd4-4523-9fbd-7574fcc9ef67.png)
+
