@@ -10,7 +10,7 @@ Group: K34202
 
 Author: Molchanova Veronika Alexandrovna
 
-Lab: Lab1
+Lab: Lab2
 
 Date of create: 24.11.2022
 
@@ -32,7 +32,7 @@ Date of finished: . .2022
 
 ## 2. Работа с ansible.
 
-Так как ansible требует ssh-подключение для управления роутерами, необходимо его настроить. Для этого в netbox или в консоли настроена генерацию ключей, а в VirtualBox добавлено NAT-соединение и прописаны SSH-порты.
+Так как ansible требует ssh-подключение для управления роутерами, необходимо его настроить. Для этого в WinBox или в консоли настроена генерацию ключей, а в VirtualBox добавлено NAT-соединение и прописаны SSH-порты.
 
 
 ![image](https://user-images.githubusercontent.com/90505004/205456277-22739396-6792-43d9-9b97-8bd42cda1e17.png)
