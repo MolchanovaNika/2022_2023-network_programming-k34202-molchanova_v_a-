@@ -90,7 +90,14 @@ Date of finished: . .2022
 
 + С помощью входящего в состав netbox исполнительного файла gnerate_secret_key.py сгенерирован секретный ключ.
 
-`python3 ../generate_secret_key.py`
+`netbox/generate_secret_key.py`
+![image](https://user-images.githubusercontent.com/90505004/207166779-072cc028-cee2-47d2-98a5-b0ac214ef840.png)
+
++ Открыт и отредактирован файл конфигурации configuration.py.
+
+`nano /opt/netbox/netbox/netbox/configuration.py`
+
+![image](https://user-images.githubusercontent.com/90505004/207167103-c8e9e10c-f5a4-4c6c-90ca-afffeb9abb19.png)
 
 + Выполнены миграции
 
@@ -150,7 +157,7 @@ Date of finished: . .2022
 
 `sudo nano /etc/nginx/sites-available/netbox`
 
-<img src="https://user-images.githubusercontent.com/90505004/205700210-1b8b5cb1-bda7-4426-8665-45a4b378c6a0.png" height="220"> 
+<img src="https://user-images.githubusercontent.com/90505004/207169776-cb88ee27-bae5-4759-b384-6d6a15c62414.png" height="350"> 
 
 + Создана символическая ссылка в каталоге с поддержкой сайтов netbox на файл конфигурации. Выполнен перезапуск служб. 
 
@@ -165,6 +172,12 @@ Date of finished: . .2022
 
 При переходе в браузере по ip открывается netbox. Теперь можно войти в систему, используя имя пользователя и пароль, которые установлены при создании учетной записи суперпользователя. Теперь можно приступить к настройке сетевых компонентов и управлению ими.
 
-<img src="https://user-images.githubusercontent.com/90505004/205961988-76105006-4495-488f-b317-4cade12c3d5d.png" height="500">
+<img src="https://user-images.githubusercontent.com/90505004/207171818-d1bc30b7-15b7-45c7-acdc-27871741d57d.png" height="500">
 
+## NetBox
 
++ Проверка работы Netbox
+
+![image](https://user-images.githubusercontent.com/90505004/207181128-66c7aa92-fab1-413f-9aaa-7703bf442c81.png)
+
++ Заполнены данные в Netbox. Подключение происходит по IP виртуальной машины по порту 8001. Вручную введены данные о двух устройствах.
