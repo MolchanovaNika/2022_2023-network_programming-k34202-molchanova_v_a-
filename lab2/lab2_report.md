@@ -39,14 +39,16 @@ Date of finished: . .2022
 
 > С помощью `Ansible` можно создавать, удалять, изменять облачные серверы, устанавливать и изменять на них ПО, управлять сетями и сетевыми настройками, и всё это делает `Ansible` самостоятельно, следуя заранее подготовленным сценариям — плейбукам (`Playbook`).
 
+
 <img src="https://user-images.githubusercontent.com/90505004/205456277-22739396-6792-43d9-9b97-8bd42cda1e17.png" height="200" > <img src="https://user-images.githubusercontent.com/90505004/205456431-366ce590-04f5-4de3-8942-72ea962ac427.png" height="300">
 
 
-### Настройка облака. 
+### Настройка файла инвентаризации
 
 + На облаке создаем файл hosts.ini. Там указаны адреса машин, которые долнжны управляться Ansible. Адреса были сгруппированы в группу Routers, для каждого элемента которой назначен набор переменных.
 
-<img src="https://user-images.githubusercontent.com/90505004/205457483-6dd85966-a323-460a-a0eb-5deb2074c7fc.png" height="150">
+
+<img src="https://user-images.githubusercontent.com/90505004/207111288-6d9515de-c164-45eb-b6fb-2b830cfed6fb.png" height="150">
 
 + После завершения настройки по адресу /etc/ansible создан файл playbook.yml. 
 
@@ -55,8 +57,8 @@ Date of finished: . .2022
 > `community.routeros.command` - Запуск команд на удаленных устройствах под управлением MikroTik RouterOS. 
 
 + С помощью `community.routeros.command` прописаны команды для выполнения определенный задач: создан новый пользователь, настроены параметры для NTP клиента, произведена настройка OSPF маршрутизации в сети между двумя роутерами, собрана информация о конфигурации устройств
- 
-<img src="https://user-images.githubusercontent.com/90505004/205457686-77f8a1f0-899b-49ed-ab89-35283657f2ce.png" height="250">
+
+<img src="https://user-images.githubusercontent.com/90505004/207119559-15165ebf-ca75-4822-930f-9ee141d99bc8.png" height="250">
 
 
 + Результат выполнения playbook (команда ansible-playbook playbook.yml). В выводах присутствуют ошибки, так как скриншот сделан после повторного запуска playbook.
