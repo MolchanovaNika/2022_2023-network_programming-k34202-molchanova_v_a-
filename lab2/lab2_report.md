@@ -63,7 +63,7 @@ Date of finished: . .2022
 
 + Результат выполнения playbook (команда ansible-playbook playbook.yml). В выводах присутствуют ошибки, так как скриншот сделан после повторного запуска playbook.
 
-<img src="https://user-images.githubusercontent.com/90505004/205458519-dd29b745-85ed-478f-93dc-3d2dca570604.png " height="350"> <img src="https://user-images.githubusercontent.com/90505004/205458552-3e130a64-e5f2-4a28-b805-00061bd5e959.png " height="350">
+<img src="https://user-images.githubusercontent.com/90505004/205458519-dd29b745-85ed-478f-93dc-3d2dca570604.png " height="350"> <img src="https://user-images.githubusercontent.com/90505004/207130262-efee4b14-6838-473c-b3a1-c73325c2f349.png " height="350">
 
 
 
@@ -85,6 +85,7 @@ Date of finished: . .2022
 > OSPF — протокол динамической маршрутизации. 
 
 <img src="https://user-images.githubusercontent.com/90505004/205929590-6a640867-c877-4110-90e3-84b9757feaef.png" height="100"> <img src="https://user-images.githubusercontent.com/90505004/205929635-5da26aef-2b1e-4111-b021-0831bad9c53f.png " height="100">
+
 
 
 ## Выводы:
