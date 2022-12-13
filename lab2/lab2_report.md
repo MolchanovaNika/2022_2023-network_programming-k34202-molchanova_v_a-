@@ -22,13 +22,11 @@ Date of finished: . .2022
 
 + Через VirtualBox создана вторая виртуальная машина, на ней установлен `CHR Mikrotik`.
 
-<img src="https://user-images.githubusercontent.com/90505004/205455927-15d57f1f-a394-4ba7-8762-e4d0e46ddd73.jpg" height="200" > <img src="https://user-images.githubusercontent.com/90505004/205455933-9e07b442-fed3-4d1e-a067-fd49a8a97348.jpg" height="200">
+<img src="https://user-images.githubusercontent.com/90505004/207184918-b62a74d3-12f0-4a63-aa9f-5c5a3d8ea5b7.jpg" height="300" > <img src="https://user-images.githubusercontent.com/90505004/207185105-1efe6029-5da9-445c-b940-a52d1ac5fa2a.jpg" height="300" > 
 
++ Вторая машины настроена как OpenVpn клиент, как и первая.
 
-+ Обе машины настроены как OpenVpn клиент
-
-<img src="https://user-images.githubusercontent.com/90505004/205456109-b4d16973-910f-4374-9f75-36e1db2f7366.jpg" height="200" > <img src="https://user-images.githubusercontent.com/90505004/205456115-5e89b4c9-9459-4872-a610-85f264bbb431.jpg" height="200">
-
+<img src="https://user-images.githubusercontent.com/90505004/207184627-9bf805a1-2a55-4695-82c3-32194c7e4559.png" height="300" >
 
 
 ## 2. Работа с ansible.
@@ -40,7 +38,7 @@ Date of finished: . .2022
 > С помощью `Ansible` можно создавать, удалять, изменять облачные серверы, устанавливать и изменять на них ПО, управлять сетями и сетевыми настройками, и всё это делает `Ansible` самостоятельно, следуя заранее подготовленным сценариям — плейбукам (`Playbook`).
 
 
-<img src="https://user-images.githubusercontent.com/90505004/205456277-22739396-6792-43d9-9b97-8bd42cda1e17.png" height="200" > <img src="https://user-images.githubusercontent.com/90505004/205456431-366ce590-04f5-4de3-8942-72ea962ac427.png" height="300">
+![image](https://user-images.githubusercontent.com/90505004/207187858-ec18f0a6-09aa-446e-b198-945936f64e65.png) ![image](https://user-images.githubusercontent.com/90505004/207188838-f384b5d0-15f5-4cb2-a8c1-cb9abdc8b00a.png)
 
 
 ### Настройка файла инвентаризации
@@ -67,24 +65,29 @@ Date of finished: . .2022
 
 
 
+
 ### Проверка на роутерах.
 
 + Проверка создание пользователя.
 
-<img src="https://user-images.githubusercontent.com/90505004/205458829-4e5ccf2a-4df6-4b6b-8b88-b7f7c1ddb4f7.png" height="90"><img src="https://user-images.githubusercontent.com/90505004/205458833-1ff5a044-08e7-40e3-abd5-195b90675933.png " height="90">
+![a](https://user-images.githubusercontent.com/90505004/207200057-32d28633-bf4c-49be-b2ca-7620411ffac7.jpg)
+![c](https://user-images.githubusercontent.com/90505004/207200023-ee5129eb-a358-441d-80d2-5843d3c9c6e2.jpg)
+
 
 + Активирован NTP клиент, для которого указаны первичный и вторичный сервера для настройки точного времени.
 
 > NTP - cетевой протокол для синхронизации внутренних часов компьютера.
 
+![d](https://user-images.githubusercontent.com/90505004/207199967-cdf9cc7e-1d8f-4585-b52c-4ad9d3447177.jpg)
 
-<img src="https://user-images.githubusercontent.com/90505004/205928188-f5e82a49-7630-458f-8d4c-8869626dc5a8.png" height="250">
 
 + OSPF маршрутизация настроена правильно,т.к. роутеры видят друг друга в качестве соседей в одной сети, а также между ними установлена связность адресов.
 
 > OSPF — протокол динамической маршрутизации. 
 
 <img src="https://user-images.githubusercontent.com/90505004/205929590-6a640867-c877-4110-90e3-84b9757feaef.png" height="100"> <img src="https://user-images.githubusercontent.com/90505004/205929635-5da26aef-2b1e-4111-b021-0831bad9c53f.png " height="100">
+
+
 
 
 
