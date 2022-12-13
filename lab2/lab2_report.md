@@ -70,7 +70,7 @@ Date of finished: . .2022
 
 + Проверка создание пользователя.
 
-![a](https://user-images.githubusercontent.com/90505004/207200057-32d28633-bf4c-49be-b2ca-7620411ffac7.jpg)
+
 ![c](https://user-images.githubusercontent.com/90505004/207200023-ee5129eb-a358-441d-80d2-5843d3c9c6e2.jpg)
 
 
