@@ -14,7 +14,7 @@ Lab: Lab2
 
 Date of create: 24.11.2022
 
-Date of finished: . .2022
+Date of finished:13.12.2022
 
 ---
 
