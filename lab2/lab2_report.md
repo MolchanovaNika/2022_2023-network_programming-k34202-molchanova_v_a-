@@ -22,7 +22,7 @@ Date of finished: . .2022
 
 + Через VirtualBox создана вторая виртуальная машина, на ней установлен `CHR Mikrotik`.
 
-<img src="https://user-images.githubusercontent.com/90505004/207184918-b62a74d3-12f0-4a63-aa9f-5c5a3d8ea5b7.jpg" height="300" > <img src="https://user-images.githubusercontent.com/90505004/207185105-1efe6029-5da9-445c-b940-a52d1ac5fa2a.jpg" height="300" > 
+ <img src="https://user-images.githubusercontent.com/90505004/207185105-1efe6029-5da9-445c-b940-a52d1ac5fa2a.jpg" height="300" > 
 
 + Вторая машины настроена как OpenVpn клиент, как и первая.
 
