@@ -201,6 +201,28 @@ Date of finished: . .2022
 <img src="https://user-images.githubusercontent.com/90505004/207990316-08c16dab-5ea5-4694-b915-31ae97149747.jpg" height="300">
 
 + В playbook1.yml добавлена часть, которая отвечает за установку названия роутера. 
- 
- ![image](https://user-images.githubusercontent.com/90505004/207991045-8c84d2da-b2cb-413a-8d78-bd620838ed75.png)
+ <img src="https://user-images.githubusercontent.com/90505004/207991045-8c84d2da-b2cb-413a-8d78-bd620838ed75.png" height="300">
+
++ Запущен playbook1 со всеми частями. В результате чего он берёт имя роутера из csv файла, сгенерированного Netbox, и присваивает  имя подключенному роутеру. Вывод результатов показывает, что всё работает корректно.
+
+![205510886-366577b3-3f2b-4784-b701-f3b435b985ea](https://user-images.githubusercontent.com/90505004/208129703-cc5117bf-df4d-4cf7-8983-97faca4634ea.jpg)
+
++ В консоли роутера видно, что название поменялось
+
+![photo_2022-12-16_18-39-21 (2)](https://user-images.githubusercontent.com/90505004/208134797-49154a9e-f2ef-485b-b5ab-9fbaf25ea608.jpg)
+
+# Обратная задача - информацию из роутера передать в Netbox
+
++ Создан playbook2
+
+<img src="https://user-images.githubusercontent.com/90505004/208139090-5c2298aa-28d3-4340-a0d8-bfc2110f2e4f.png" height="300">
+
+
+![image](https://user-images.githubusercontent.com/90505004/208140522-308d1db1-f507-479a-b3e5-25e6bcd6acbb.png)
+
+
+
+
+
+
 
