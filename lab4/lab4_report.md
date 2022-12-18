@@ -20,3 +20,4 @@ Date of finished: . .2022
 + Склонирован репозиторий на диск с помощью команды `git clone https://github.com/p4lang/tutorials`
 + В папке vm-ubuntu-20.04 выполнена команда `vagrant up`, которая запустила установку виртуальной машины
 + ![image](https://user-images.githubusercontent.com/90505004/208214846-d7081861-b6ee-446f-976d-d0e92025e7ca.png)
+![image](https://user-images.githubusercontent.com/90505004/208272459-030c4ff8-b192-4e3c-9640-33ea9841c395.png)
