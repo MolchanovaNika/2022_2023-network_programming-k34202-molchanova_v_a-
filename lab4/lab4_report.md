@@ -36,7 +36,10 @@ Date of finished: . .2022
 <img src="https://user-images.githubusercontent.com/90505004/208272459-030c4ff8-b192-4e3c-9640-33ea9841c395.png" height="400">
 
 ## 2. Реализация базовой переадресации. 
-> Цель задания - дописать программу P4, реализующиую базовую переадресацию. 
+> Цель задания - дописать программу P4, реализующиую базовую переадресацию. В basic.p4 уже есть определнный скилет программы, но в некоторых частях отсутсвуют данные. Вместо отсутсвующих данный размещены комментарии, чтобы помочь дописать верный код.
+
+![image](https://user-images.githubusercontent.com/90505004/208321523-c50e8e73-ec74-4618-bf69-370c696afe9f.png)
+
 ### Запуск начального кода
 + Выполнен вход в папку задания. 
 + Затем выполнена команда, которая скомпилирует basic.p4
@@ -53,15 +56,82 @@ make run
 
 <img src="https://user-images.githubusercontent.com/90505004/208278358-25dd0a53-3f59-43d7-b0a1-5a109c7d6030.png" height="400">
 
-<img width="406" alt="image_2022-12-18_05-28-21" src="https://user-images.githubusercontent.com/90505004/208278511-e2c25f78-9935-485e-8a6d-8fd57b649109.png">
++ Открыт файл basic.p4 для решения поставленной задачи
++ В разделе Parsers добавлени парсинг `ethernet` и `ipv4 headers`.
+
+> Парсер в P4 — это функция, которая отображает пакеты в заголовках и метаданные, написанные уже на языке конечного автомата.
+
+<img src="https://user-images.githubusercontent.com/90505004/208322010-3dec9489-36d7-4d5f-8ee9-5eec6e390a85.png" height="500">
 
 
-<img width="399" alt="image_2022-12-18_05-11-49" src="https://user-images.githubusercontent.com/90505004/208278358-25dd0a53-3f59-43d7-b0a1-5a109c7d6030.png">
-<img width="396" alt="image_2022-12-18_05-13-01" src="https://user-images.githubusercontent.com/90505004/208278359-f9700e34-8847-4da7-a992-accf6c5bea87.png">
-<img width="400" alt="image_2022-12-18_05-13-14" src="https://user-images.githubusercontent.com/90505004/208278360-cc482369-e515-4d14-818b-50015229d0bd.png">
-<img width="400" alt="image_2022-12-18_05-17-18" src="https://user-images.githubusercontent.com/90505004/208278362-96176d9a-082e-4fa1-b019-d0742e31449b.png">
-<img width="400" alt="image_2022-12-18_05-20-30" src="https://user-images.githubusercontent.com/90505004/208278363-1df97215-91f9-44ce-82fb-8ab228f200e1.png">
-<img width="400" alt="image_2022-12-18_05-25-28" src="https://user-images.githubusercontent.com/90505004/208278437-9d221cff-2b84-42a3-80b4-4ee1a5d3c296.png">
-<img width="402" alt="image_2022-12-18_05-26-41" src="https://user-images.githubusercontent.com/90505004/208278439-71aee41e-843c-4123-8479-9416bbde5fe2.png">
-<img width="400" alt="image_2022-12-18_05-25-28" src="https://user-images.githubusercontent.com/90505004/208278470-c3114fa1-62eb-4141-94a0-47d5f04da238.png">
-<img width="402" alt="image_2022-12-18_05-26-41" src="https://user-images.githubusercontent.com/90505004/208278472-e6fbb0f2-65ac-4bd4-8be4-35a544839e4f.png">
++ В разделе Ingress processing добавлен метод, который отвечает за пересылки пакетов и выполняет следующее: устанавливает выходный порт, обновляет MAC адрес назначения, обновляет исходный MAC адрес, уменьшает значение TTL. 
+Также прописано условие проверки правильности заголвка ipv4.
+
+
+> Ingress processing - содержит методы, необходимые для обработки пакета на плане управления.
+
+> Time to live (TTL) — предельный период времени или число итераций или переходов, которые набор данных (пакет) может осуществить (прожить) до своего исчезновения.
+
+<img src="https://user-images.githubusercontent.com/90505004/208322411-79db235a-b96c-4548-8656-2647d556f47d.png" height="500"><img src="https://user-images.githubusercontent.com/90505004/208322715-ab4c5f03-3e29-4083-8bde-1ca1f2de6e8a.png" height="500">
+
++ В разделе Deparsers добавлен () депарсинг ethernet и ipv4 headers.
+
+> Deparsers - отвечает за обратное преобразование пакетов в данные, понятные машине.
+
+<img width="402" alt="image_2022-12-18_05-26-41" src="https://user-images.githubusercontent.com/90505004/208323774-e489d3c5-e92c-4e33-b410-6599adb0ab2c.png">
+
++ Затем заново запущена эмуляции сети. Все коммутаторы могут связаться с друг другом.
+
+<img src="https://user-images.githubusercontent.com/90505004/208325412-07baeece-44f9-4c02-ba5a-0d196d8bd1e0.png" height="500">
+
+## 3. Реализация базового туннелирования
+
+> Перенаправление пакетов уже реализовано в шаблоне программы. Необходимо дополнить шаблон таким образом, чтобы была возможность осуществлять туннелирование между всеми коммутаторами в сети, представленной на диаграмме ниже
+
+![image](https://user-images.githubusercontent.com/90505004/208325629-6ca8ae77-1a56-482f-91da-9068a505b3cd.png)
+
++ Открыт файл basic_tunnel.p4 для решения поставленной задачи
+
++ В шаблоне задания уже добавлена константа, которая нужна для теннелирования `const bit<16> TYPE_MYTUNNEL = 0x1212;`
+
++ Также в шаблон уже добавлен новый заголовок `header myTunnel_t `, который включает id протокола, id коммутатора, куда нужно направить пакет. Этот заголовок также добавлен в `struct headers`.
+
+<img src="https://user-images.githubusercontent.com/90505004/208325745-7b0e8182-0fd4-49c5-accb-1b14dcc34d2d.png" height="400"> <img src="https://user-images.githubusercontent.com/90505004/208326310-f60f273b-17c1-47d5-975c-d73582666a88.png" height="400">
+
++ В разделе Parsers добавлено новое состояние `state parse_myTunnel`. Новое состояние также добавлено в оператор select в `state parse_ethernet`. 
+
+> state parse_myTunnel - преобразует туннельный заголовок: если id протокола соответсвует IPv4, то parser переходит в состояние преобразование IP-пакета, а по умолчанию - принимает пакеты
+
+<img src="https://user-images.githubusercontent.com/90505004/208326539-9cd96eaa-3c82-4b51-870f-90c6ab271bcf.png" height="500">
+
++ В разделе Ingress processing добавлено новое действие `action myTunnel_forward(egressSpec_t port)`, а также новая таблица `table myTunnel_exact`. Также прописано условие проверки: если ip задан верно, а туннель нет, то отправляем пакеты обычным способом, как в первой части работы, если задано верно всё, то отправляем через туннель.
+
+> `action myTunnel_forward(egressSpec_t port)` - обновляет выходной порт для пакета
+
+>  `table myTunnel_exact` - вызывает функцию myTunnel_forward при совпадении значения поля dst_id
+
+<img src="https://user-images.githubusercontent.com/90505004/208328191-2186f743-a016-49ca-b9c4-32dc36a7ec11.png" height="500">
+
++ В разделе Deparsers добавлено преобразование пакетов туннелирования.
+
+<img src="https://user-images.githubusercontent.com/90505004/208328493-ee08fda4-97c7-4c98-b5b5-df1b743a15e3.png" height="500">
+
+## Запуск решения
+
++ Выполнен вход в Mininet и открыты два терминала.
+
++ Сначала проведено тестирование без туннелирования. С h1 на h2 отправлен пакет с заголовком Ethernet, ip, tcp и сообщением. Все выполнено успешно, пакет получен. 
+
+![image](https://user-images.githubusercontent.com/90505004/208330775-9b297068-272b-495c-8049-edec266a53f3.png)
+
+
++ Тестирование с туннелированием. Теперь в команду отправки добавлено некоторое изменение `./send.py 10.0.2.2 "message" --dst_id 2`
+> Если указать не тот ip, то все равно пакет будет получен на h2. Это связано с тем, что коммутатор больше не использует заголовок IP для маршрутизации, когда MyTunnel заголовок находится в пакете.
+
+![image](https://user-images.githubusercontent.com/90505004/208330067-630f466a-6d5f-41af-82f2-63afab953ad3.png)
+
+![image](https://user-images.githubusercontent.com/90505004/208330077-294f6efa-28b6-4032-8690-35c5388daa00.png)
+
+## Вывод
+
++ Были успешно реализованы базовая переадресация и базовое туннелирование с помощью языка P4. В ходе работы был изучен синтаксис языка P4.
