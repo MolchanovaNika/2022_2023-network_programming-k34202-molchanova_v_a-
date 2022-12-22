@@ -186,6 +186,8 @@ Date of finished: . .2022
 
 ![image](https://user-images.githubusercontent.com/90505004/209022004-0b7944d4-ad56-4167-a996-e3cd7f8183a9.png)
 
+![image](https://user-images.githubusercontent.com/90505004/209043326-f3a82430-e0b2-4006-9544-208567e79a24.png)
+
 
 + Из NetBox был скачан файл csv с данными о роутерах
 
