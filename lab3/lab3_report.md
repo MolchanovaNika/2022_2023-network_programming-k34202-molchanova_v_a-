@@ -35,7 +35,6 @@ Date of finished: . .2022
 
 <img src="https://user-images.githubusercontent.com/90505004/205985187-1e81d4cd-8593-44cc-9272-0656d229dccf.png" height="150">
 
-<img src="" height="220">
 
 ## Установка Redis
 
