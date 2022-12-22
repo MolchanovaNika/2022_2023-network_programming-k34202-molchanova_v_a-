@@ -196,7 +196,7 @@ Date of finished: . .2022
 
 + Создан файл playbook1.yml. Одна из частей задачи:спарсить csv файл и записать нужную информацию о роутере в отдельный файл. В данном случае за ключ берём UID роутера, так как это значение не будет изменяться.
 
-<img src="https://user-images.githubusercontent.com/90505004/209032981-543af934-c0b9-4080-9d76-8cad3bbb98e7.png" height="300">
+<img src="https://user-images.githubusercontent.com/90505004/209047715-046ee173-6c94-4356-8a8b-e40b3a7e2543.jpg" height="300">
 
 + Запущен playbook1, для проверки правильности вывода.
 
