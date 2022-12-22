@@ -199,7 +199,6 @@ Date of finished: . .2022
 
 + Запущен playbook1, для проверки правильности вывода.
 
-![image](https://user-images.githubusercontent.com/90505004/209014017-d08d1022-fbc5-4e25-a18e-019da4ea9215.png)
 
 ![2](https://user-images.githubusercontent.com/90505004/209037355-2fb784fa-93cf-49d0-95b4-0f8175a4367d.jpg)
 
@@ -213,10 +212,6 @@ Date of finished: . .2022
 
 ![1](https://user-images.githubusercontent.com/90505004/209035345-328c27b2-6c9a-4bb5-b1cd-e8aa0b2b7b41.jpg)
 
-
-
-![image](https://user-images.githubusercontent.com/90505004/209014598-85033e86-ad25-454b-be5c-2c186d02e62d.png)
-
 + В консоли роутера видно, что название поменялось
 
 ![photo_2022-12-16_18-39-21 (2)](https://user-images.githubusercontent.com/90505004/208134797-49154a9e-f2ef-485b-b5ab-9fbaf25ea608.jpg)
@@ -228,10 +223,12 @@ Date of finished: . .2022
 ![image](https://user-images.githubusercontent.com/90505004/209023303-04176730-0f15-4f5b-b00f-cc935f3992b1.png)
 
 
-+ Выполнен запуск playbook2, все выполненно успешно.
++ Выполнен запуск playbook2, все выполнено успешно.
 
 ![ss](https://user-images.githubusercontent.com/90505004/209032662-369636a4-318c-4543-b70d-ec0b2a8c879e.jpg)
 
 ## Вывод
 
 В результате выполнения работы выполнена установка и настрйока Netbox. Написаны ansible playbooks для взаимодействия ранее настроеных роутеров и Netbox. Netbox показал себя как удобное средство для документирования сети.
+
+![image](https://user-images.githubusercontent.com/90505004/209042785-62406a8c-d0c8-4d5f-868a-798f54bc4528.png)
